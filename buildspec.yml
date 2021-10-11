@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - npm i
+  build:
+    commands:
+      - npm run build
+
+artifacts:
+  files:
+    - "**/*"
+  name: "compressor"
+  base-directory: build
+
+cache:
+  paths:
+    - /root/.npm/**/*

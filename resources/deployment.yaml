@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: compressor-deployment
+  labels:
+    app: compressor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: compressor
+  template:
+    metadata:
+      labels:
+        app: compressor
+    spec:
+      containers:
+      - name: compressor
+        image: compressor:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
